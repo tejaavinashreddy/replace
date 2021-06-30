@@ -1,0 +1,32 @@
+import java.util.*;
+class Replace
+{
+    static int replaceDigit(int n, int x, int y)
+    {
+        int result = 0, multiply = 1;
+        while (n / 10 > 0) 
+       {
+            int remainder = n % 10;
+            if (remainder == x)
+                result = result + y * multiply;
+            else 
+                result = result + remainder * multiply;
+            multiply *= 10;
+            n = n / 10; 
+        }
+            if (n == x)
+            result = result + y * multiply;
+        else 
+            result = result + n * multiply;
+        return result;
+    }
+    public static void main(String[] args)
+    {
+        Scanner sc=new Scanner(System.in);
+        int n, x ,y ;
+        n=sc.nextInt();
+        x=sc.nextInt();
+        y=sc.nextInt();
+System.out.println(replaceDigit(n, x, y));
+    }
+}
